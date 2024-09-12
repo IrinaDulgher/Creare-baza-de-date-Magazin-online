@@ -63,12 +63,10 @@ Pentru a putea utiliza baza de date, am populat tabelele cu diverse date necesar
 VALUES 
     ('Laptop', 'Computere', 1200.00),
     ('Smartphone', 'Telefoane', 800.00);
-
 - INSERT INTO Produse (NumeProdus, Categoria, Pret)
 VALUES 
     ('Laptop', 'Computere', 1200.00),
     ('Smartphone', 'Telefoane', 800.00);
-
 - INSERT INTO Comenzi (DataComanda, IDClient)
 VALUES 
     ('2024-07-20', 1),
