@@ -63,7 +63,7 @@ Pentru a putea utiliza baza de date, am populat tabelele cu diverse date necesar
 VALUES 
     ('Laptop', 'Computere', 1200.00),
     ('Smartphone', 'Telefoane', 800.00);
-  - INSERT INTO Produse (NumeProdus, Categoria, Pret)
+-  INSERT INTO Produse (NumeProdus, Categoria, Pret)
 VALUES 
     ('Laptop', 'Computere', 1200.00),
     ('Smartphone', 'Telefoane', 800.00);
@@ -98,8 +98,7 @@ WHERE Categoria NOT LIKE 'Telefoane';
 -SELECT Clienti.Prenume, Clienti.Nume, Comenzi.DataComanda
 FROM Clienti
 INNER JOIN Comenzi ON Clienti.IDClient = Comenzi.IDClient;
-- -- LEFT JOIN: extragerea tuturor produselor, chiar dacă unele nu au fost vândute;
-SELECT Produse.NumeProdus, DetaliiComanda.Cantitate
+- SELECT Produse.NumeProdus, DetaliiComanda.Cantitate
 FROM Produse
 LEFT JOIN DetaliiComanda ON Produse.IDProdus = DetaliiComanda.IDProdus;
 - SELECT Comenzi.DataComanda, DetaliiComanda.Cantitate
