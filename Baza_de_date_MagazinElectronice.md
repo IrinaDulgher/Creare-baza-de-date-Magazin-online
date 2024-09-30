@@ -1,20 +1,20 @@
-**Proiect de bază de date pentru:** MagazinElectronice
+# **Proiect de bază de date pentru:** MagazinElectronice
 Scopul acestui proiect este de a utiliza toate cunoștințele SQL acumulate în cadrul cursului de Testare a Software-ului și de a le pune în practică.
 
-**Aplicația supusă testării:** MagazinElectronice
+### **Aplicația supusă testării:** MagazinElectronice
 
-**Instrumentele utilizate:** MySQL Workbench
+### **Instrumentele utilizate:** MySQL Workbench
 
-**Descrierea bazei de date:** Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi DDL (Data Definition Language), DML (Data Manipulation Language) și DQL (Data Query Language) sunt incluse, fiecare asociată cu un scenariu specific.
+### **Descrierea bazei de date:** Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi DDL (Data Definition Language), DML (Data Manipulation Language) și DQL (Data Query Language) sunt incluse, fiecare asociată cu un scenariu specific.
 
-**Schema bazei de date**
+### **Schema bazei de date**
 
 Tabelele sunt conectate în următorul mod:
 
 'Comenzi' este conectat cu 'Clienti' printr-o relație de tipul ‘many-to-one’, care a fost implementată prin 'IDComanda’ drept cheie primară și 'IDClient’ drept cheie străină.
 'DetaliiComanda' este conectat cu 'Comenzi' printr-o relație de tipul ‘many-to-one’, care a fost implementată prin 'IDDetaliuComanda’ drept cheie primară și 'IDComanda’ drept cheie străină. 'DetaliiComanda' este, de asemenea, conectat cu 'Produse' printr-o relație de tipul ”many-to-one", care a fost implementată prin 'IDDetaliuComanda’ drept cheie primară și 'IDProdus’ drept cheie străină.
 
-**DDL (Data Definition Language)**
+### **DDL (Data Definition Language)**
 
 Următoarele instrucțiuni au fost scrise în scopul CREĂRII structurii bazei de date. 
 - CREATE TABLE Produse (
@@ -57,7 +57,7 @@ DROP COLUMN Stoc;
 - TRUNCATE TABLE Produse;
 
 
-**DML (Data Manipulation Language)**
+### **DML (Data Manipulation Language)**
 Pentru a putea utiliza baza de date, am populat tabelele cu diverse date necesare pentru a efectua interogări și a manipula datele. În procesul de testare, aceste date necesare sunt identificate în faza de Design al Testelor și create în faza de Implementare a Testelor. Mai jos găsiți toate instrucțiunile de inserare care au fost create în scopul acestui proiect:
 - INSERT INTO Produse (NumeProdus, Categoria, Pret)
 VALUES 
@@ -80,7 +80,7 @@ WHERE IDProdus = 1;
 După procesul de testare, am șters datele care nu mai erau relevante pentru a menține baza de date curată:
 - DELETE FROM Comenzi WHERE IDComanda = 1;
 
-**DQL (Data Query Language)**
+### **DQL (Data Query Language)**
 
 Pentru a simula diverse scenarii care ar putea apărea în viața reală, am creat următoarele interogări care acoperă multiple situații potențiale din viața reală:
 - SELECT * FROM Clienti;
@@ -115,7 +115,7 @@ WHERE IDClient IN (
     HAVING COUNT(*) > 1
 );
 
-**Concluzie**
+### **Concluzie**
 În acest proiect, am dezvoltat o bază de date cuprinzătoare pentru gestionarea unui magazin online de electronice. Pe parcursul acestui proces, am acoperit aspecte esențiale ale managementului bazei de date, inclusiv crearea și modificarea tabelelor (DDL), inserarea, ștergerea și actualizarea datelor (DML) și interogarea datelor (DQL). De asemenea, am explorat utilizarea cheilor primare și a cheilor străine pentru a stabili relații între tabele, asigurând integritatea datelor și facilitând managementul eficient al acestora.
 Am învățat cum să proiectez o bază de date care să reprezinte eficient entitățile din lumea reală, cum ar fi produsele, clienții și comenzile. Înțelegerea relațiilor dintre aceste entități a fost crucială pentru crearea unei baze de date bine structurate.
 Proiectul mi-a oferit oportunitatea de a aplica cunoștințele teoretice despre baze de date într-un context practic.
