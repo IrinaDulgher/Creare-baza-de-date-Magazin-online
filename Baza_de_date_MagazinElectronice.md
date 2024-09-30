@@ -1,53 +1,54 @@
-# **Proiect de bază de date pentru:** MagazinElectronice
-Scopul acestui proiect este de a utiliza toate cunoștințele SQL acumulate în cadrul cursului de Testare a Software-ului și de a le pune în practică.
+> # **Proiect de bază de date pentru:** MagazinElectronice
+> Scopul acestui proiect este de a utiliza toate cunoștințele SQL acumulate în cadrul cursului de *Testare a Software-ului* și de a le pune în practică.
 
-### **Aplicația supusă testării:** MagazinElectronice
+> ### **Aplicația supusă testării:** MagazinElectronice
 
-### **Instrumentele utilizate:** MySQL Workbench
+> ### **Instrumentele utilizate:** MySQL Workbench
 
-### **Descrierea bazei de date:
-Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi DDL (Data Definition Language), DML (Data Manipulation Language) și DQL (Data Query Language) sunt incluse, fiecare asociată cu un scenariu specific.
+> ### **Descrierea bazei de date:**
+> Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi *DDL (Data Definition Language)*, *DML (Data Manipulation Language)* și *DQL (Data Query Language)* sunt incluse, fiecare asociată cu un scenariu specific.
 
-### **Schema bazei de date**
+> ### **Schema bazei de date**
+> Tabelele sunt conectate în următorul mod:
+> - *'Comenzi'* este conectat cu *'Clienti'* printr-o relație de tipul *‘many-to-one’*, care a fost implementată prin *'IDComanda’* drept cheie primară și *'IDClient’* drept cheie străină.
+> - *'DetaliiComanda'* este conectat cu *'Comenzi'* printr-o relație de tipul *‘many-to-one’*, care a fost implementată prin *'IDDetaliuComanda’* drept cheie primară și *'IDComanda’* drept cheie străină.
+> - *'DetaliiComanda'* este, de asemenea, conectat cu *'Produse'* printr-o relație de tipul *”many-to-one"*, care a fost implementată prin *'IDDetaliuComanda’* drept cheie primară și *'IDProdus’* drept cheie străină.
 
-Tabelele sunt conectate în următorul mod:
+> ### **DDL (Data Definition Language)**
+> Următoarele instrucțiuni au fost scrise în scopul CREĂRII structurii bazei de date. 
+> - <p> CREATE TABLE Produse (
+> IDProdus INT PRIMARY KEY AUTO_INCREMENT,
+> <br> NumeProdus VARCHAR(100),
+> <br> Categoria VARCHAR(50),
+> <br> Pret DECIMAL(10, 2),
+> <br> Stoc INT
+> <br> );
 
-'Comenzi' este conectat cu 'Clienti' printr-o relație de tipul ‘many-to-one’, care a fost implementată prin 'IDComanda’ drept cheie primară și 'IDClient’ drept cheie străină.
-'DetaliiComanda' este conectat cu 'Comenzi' printr-o relație de tipul ‘many-to-one’, care a fost implementată prin 'IDDetaliuComanda’ drept cheie primară și 'IDComanda’ drept cheie străină. 'DetaliiComanda' este, de asemenea, conectat cu 'Produse' printr-o relație de tipul ”many-to-one", care a fost implementată prin 'IDDetaliuComanda’ drept cheie primară și 'IDProdus’ drept cheie străină.
 
-### **DDL (Data Definition Language)**
+> - <p> CREATE TABLE Clienti (
+> IDClient INT PRIMARY KEY AUTO_INCREMENT,
+> <br> Prenume VARCHAR(100),
+> <br> Nume VARCHAR(100),
+> <br> Email VARCHAR(100) UNIQUE,
+> <br> Telefon VARCHAR(15)
+> <br> );
 
-Următoarele instrucțiuni au fost scrise în scopul CREĂRII structurii bazei de date. 
-- CREATE TABLE Produse (
-    IDProdus INT PRIMARY KEY AUTO_INCREMENT,
-    NumeProdus VARCHAR(100),
-    Categoria VARCHAR(50),
-    Pret DECIMAL(10, 2),
-    Stoc INT
-);
-- CREATE TABLE Clienti (
-    IDClient INT PRIMARY KEY AUTO_INCREMENT,
-    Prenume VARCHAR(100),
-    Nume VARCHAR(100),
-    Email VARCHAR(100) UNIQUE,
-    Telefon VARCHAR(15)
-);
-- CREATE TABLE Clienti (
-    IDClient INT PRIMARY KEY AUTO_INCREMENT,
-    Prenume VARCHAR(100),
-    Nume VARCHAR(100),
-    Email VARCHAR(100) UNIQUE,
-    Telefon VARCHAR(15)
-);
-- CREATE TABLE DetaliiComanda (
-    IDDetaliuComanda INT PRIMARY KEY AUTO_INCREMENT,
-    IDComanda INT,
-    IDProdus INT,
-    Cantitate INT,
-    FOREIGN KEY (IDComanda) REFERENCES Comenzi(IDComanda),
-    FOREIGN KEY (IDProdus) REFERENCES Produse(IDProdus)
+> - <p> CREATE TABLE Clienti (
+>   IDClient INT PRIMARY KEY AUTO_INCREMENT,
+> <br> Prenume VARCHAR(100),
+> <br> Nume VARCHAR(100),
+> <br> Email VARCHAR(100) UNIQUE,
+> <br> Telefon VARCHAR(15)
 );
 
+> - <p>CREATE TABLE DetaliiComanda (
+> IDDetaliuComanda INT PRIMARY KEY AUTO_INCREMENT,
+> <br> IDComanda INT,
+> <br> IDProdus INT,
+> <br> Cantitate INT,
+> <br> FOREIGN KEY (IDComanda) REFERENCES Comenzi(IDComanda),
+> <br> FOREIGN KEY (IDProdus) REFERENCES Produse(IDProdus)
+> <br> );
 
 După ce baza de date și tabelele au fost create, au fost scrise câteva instrucțiuni ALTER, DROP și TRUNCATE pentru a actualiza structura bazei de date, așa cum este descris mai jos:
 - ALTER TABLE Clienti
