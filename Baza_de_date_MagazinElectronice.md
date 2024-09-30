@@ -5,7 +5,8 @@ Scopul acestui proiect este de a utiliza toate cunoștințele SQL acumulate în 
 
 ### **Instrumentele utilizate:** MySQL Workbench
 
-### **Descrierea bazei de date:** Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi DDL (Data Definition Language), DML (Data Manipulation Language) și DQL (Data Query Language) sunt incluse, fiecare asociată cu un scenariu specific.
+### **Descrierea bazei de date:
+** Aceasta este o bază de date pentru gestionarea unui magazin online de electronice. Baza de date va include tabele pentru produse, clienți, comenzi și detalii ale comenzilor. Toate componentele necesare, cum ar fi DDL (Data Definition Language), DML (Data Manipulation Language) și DQL (Data Query Language) sunt incluse, fiecare asociată cu un scenariu specific.
 
 ### **Schema bazei de date**
 
